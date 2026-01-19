@@ -1,0 +1,350 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+    --bg-color: #0f172a;
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --primary-color: #38bdf8;
+    --secondary-color: #818cf8;
+    --text-color: #f1f5f9;
+    --text-muted: #94a3b8;
+    --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+    --sidebar-width: 250px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Main Layout Grid */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: grid;
+    /* Sidebar | Content */
+    grid-template-columns: 250px 1fr;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Sidebar Navigation */
+nav {
+    grid-column: 1;
+    /* Explicitly place in first column */
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(12px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 4rem 1rem;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1.2rem;
+    display: block;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+nav a:hover {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--primary-color);
+    border-left-color: var(--primary-color);
+    padding-left: 2rem;
+    /* Slide effect */
+}
+
+/* Main Content Area */
+main {
+    /* Ensure content doesn't overflow grid cell */
+}
+
+/* Sections */
+section {
+    min-height: 100vh;
+    padding: 6rem 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+    /* Removed flex centering to allow full width flow */
+}
+
+h1,
+h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    background: var(--accent-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    /* Headers can still be centered */
+}
+
+p {
+    color: var(--text-muted);
+    /* max-width: 600px; Remove max-width constraint for general paragraphs */
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+}
+
+/* Home Section */
+#home {
+    background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent 40%);
+    display: flex;
+    /* Keep flex for Home to center the hero content */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-btn {
+    padding: 1rem 2.5rem;
+    background: var(--accent-gradient);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.6);
+}
+
+/* Block Section (Grid Layout) */
+#block {
+    /* No flex centering, allow grid to expand */
+}
+
+.block-container {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    /* Grid replacing Flexbox */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    /* Increased gap */
+    padding: 2rem 0;
+}
+
+.dynamic-block {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    transition: transform 0.3s ease, background 0.3s ease;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dynamic-block:hover {
+    transform: translateY(-10px);
+    background: rgba(56, 189, 248, 0.1);
+    border-color: rgba(56, 189, 248, 0.3);
+}
+
+.dynamic-block h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+/* Content Section */
+#content {
+    background: linear-gradient(180deg, transparent, rgba(129, 140, 248, 0.05));
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: none;
+    /* Allow full width */
+}
+
+.info-card {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 20px;
+    border-left: 4px solid var(--primary-color);
+}
+
+/* About Section */
+#about {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-icons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.profile-info h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.profile-info .role {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.profile-info .email a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.profile-info .email a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.icon {
+    font-size: 2rem;
+    cursor: default;
+    transition: transform 0.3s ease;
+}
+
+.icon:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* Hide Hamburger on Desktop by default */
+.menu-toggle {
+    display: none;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+        /* Stack sidebar and content */
+    }
+
+    /* Mobile Sidebar Hidden by default */
+    nav {
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 250px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 2000;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 5rem;
+        /* Space for toggle button */
+        background: rgba(15, 23, 42, 0.98);
+        /* Less transparent on mobile */
+    }
+
+    nav.active {
+        transform: translateX(0);
+        /* Slide in */
+    }
+
+    nav ul {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 1.5rem;
+    }
+
+    nav a {
+        font-size: 1.1rem;
+        padding: 1rem 1.5rem;
+    }
+
+    section {
+        padding: 4rem 1.5rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    /* Hamburger Menu Button */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 3000;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        width: 100%;
+        height: 3px;
+        background: var(--primary-color);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    /* Hamburger Animation */
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+}
