@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "start": "serve .",
+    "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css",
+    "watch": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "serve": "^14.2.5",
+    "tailwindcss": "^4.1.18"
+  }
+}
